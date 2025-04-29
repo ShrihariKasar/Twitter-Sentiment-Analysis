@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tweet Sentiment Classifier</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url("/static/sentiment-analysis.jpg") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      width: 100%;
+      max-width: 600px;
+      box-shadow: 0 12px 60px rgba(31, 38, 135, 0.15);
+      text-align: center;
+      color: black;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #ff4b2b;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    textarea {
+      width: 100%;
+      height: 150px;
+      padding: 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 12px;
+      resize: none;
+      outline: none;
+      background: rgba(255, 255, 255, 0.85);
+      color: #333;
+      font-family: inherit;
+      transition: background-color 0.3s ease;
+    }
+
+    textarea:focus {
+      background-color: #fff;
+      box-shadow: 0 0 5px rgba(255, 100, 50, 0.5);
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      background-color: #ff4b2b;
+      color: black;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #ff3a1f;
+      transform: translateY(-3px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .result {
+      margin-top: 30px;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: left;
+    }
+
+    .result p {
+      font-size: 1.2em;
+      margin: 12px 0;
+    }
+
+    .result p strong {
+      color: #ff4b2b;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+      textarea {
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Tweet Sentiment Classifier</h1>
+    <form method="POST">
+      <textarea name="tweet" placeholder="Enter your tweet here..." required></textarea><br>
+      <button type="submit">Analyze Sentiment</button>
+    </form>
+
+    {% if tweet %}
+    <div class="result">
+      <p><strong>Your Tweet:</strong></p>
+      <p>{{ tweet }}</p>
+    </div>
+    {% endif %}
+
+    {% if sentiment %}
+    <div class="result">
+      <p><strong>Sentiment:</strong> {{ sentiment }}</p>
+      <p><strong>Confidence:</strong> {{ confidence }}%</p>
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>

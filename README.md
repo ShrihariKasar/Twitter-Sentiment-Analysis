@@ -7,7 +7,6 @@ This project is a Flask-based web application that allows users to enter a tweet
 ## 🚀 Features
 
 - Web interface built with Flask
-- Pretrained sentiment analysis model (using `CountVectorizer` + `LogisticRegression`)
 - Confidence score for predictions
 - Beautiful, responsive UI with background image
 - Sentiment result cleared on refresh for better UX
@@ -16,7 +15,7 @@ This project is a Flask-based web application that allows users to enter a tweet
 
 ## 🖼️ Screenshot
 
-![App Screenshot](./screenshot.png)
+![App Screenshot]([./screenshot.png](https://github.com/ShrihariKasar/Twitter-Sentiment-Analysis/blob/main/templates/Screenshot%20(200).png))
 
 ---
 
@@ -42,9 +41,6 @@ Tweet-Sentiment-Classifier/
 ├── templates/
 │   └── index.html
 │
-├── model/
-│   ├── sentiment_model.pkl
-│   └── vectorizer.pkl
 │
 ├── app.py
 ├── requirements.txt
@@ -115,7 +111,6 @@ joblib
 
 - **Shrihari Kasar**
 - **Utkarsha Kakulte**
-- **Rohit Khadangle**
 
 ---
 
